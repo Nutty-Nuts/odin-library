@@ -1,0 +1,113 @@
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input {
+    width: 14.5rem;
+    height: 2.5rem;
+
+    border-radius: 8px;
+    border: 2px solid gray;
+
+    box-sizing: border-box;
+
+    padding: 1rem;
+}
+
+.menu-modal {
+    position: fixed;
+    z-index: 1;
+
+    width: 15rem;
+    height: 25rem;
+
+    background-color: whitesmoke;
+
+    border-radius: 1rem;
+
+    padding: 1rem;
+    bottom: 25%;
+    left: 40%;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.menu-form {
+    text-align: left;
+    display: flex;
+
+    flex-direction: column;
+}
+
+.input-space {
+    margin-bottom: 2rem;
+}
+
+.close {
+    font-size: 24px;
+
+    text-align: right;
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 2.5rem;
+    font-weight: bold;
+}
+
+.add {
+    width: 7rem;
+    height: 2rem;
+
+    background-color: gray;
+
+    border-radius: 1rem;
+
+    color: white;
+
+    border: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.books {
+    display: grid;
+
+    height: 90vh;
+
+    grid-template-columns: repeat(auto-fit, 10rem);
+    grid-template-rows: repeat(auto-fit, 15rem);
+
+    gap: 1rem;
+}
+
+.book {
+    background-color: cornflowerblue;
+    border-radius: 1rem;
+
+    padding: 1rem;
+
+    text-align: center;
+
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 3rem;
+
+    color: white;
+}
