@@ -11,6 +11,10 @@ function showMenu() {
 function hideMenu() {
     menu.classList.add("hidden");
     menu.classList.remove("show");
+
+    document.getElementById("author").value = "";
+    document.getElementById("title").value = "";
+    document.getElementById("pages").value = "";
 }
 
 function addBook() {
@@ -22,6 +26,10 @@ function addBook() {
     libraryCollection.push(newBook);
 
     generateBooks();
+
+    document.getElementById("author").value = "";
+    document.getElementById("title").value = "";
+    document.getElementById("pages").value = "";
 
     console.log("Add Book");
 }
@@ -47,9 +55,18 @@ function generateBooks() {
     bookPages = document.createElement("div");
     bookPages.innerText = i.pages;
 
+    remove = document.createElement("button");
+    remove.setAttribute("onclick", "removeBook()");
+    remove.innerText = "REMOVE";
+
     book.appendChild(bookTitle);
     book.appendChild(bookAuthor);
     book.appendChild(bookPages);
+    book.appendChild(remove);
 
     books.appendChild(book);
+}
+
+function removeBook(e) {
+    books.removeChild(book);
 }
