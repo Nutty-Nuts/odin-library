@@ -32,13 +32,21 @@ function addBook() {
     document.getElementById("pages").value = "";
 
     console.log("Add Book");
+    console.log(newBook.read);
 }
 
 function Book(author, title, pages) {
     this.author = author;
     this.title = title;
     this.pages = pages;
+    this.read = false;
 }
+
+Book.prototype.updateRead = function () {
+    this.read = !this.read;
+};
+
+var readStatus = false;
 
 function generateBooks() {
     let i = libraryCollection[libraryCollection.length - 1];
@@ -59,12 +67,33 @@ function generateBooks() {
     remove.setAttribute("onclick", "removeBook()");
     remove.innerText = "REMOVE";
 
+    read = document.createElement("button");
+    read.setAttribute("onclick", "invertRead()");
+    read.innerText = "NOT READ";
+
     book.appendChild(bookTitle);
     book.appendChild(bookAuthor);
     book.appendChild(bookPages);
     book.appendChild(remove);
+    book.appendChild(read);
 
     books.appendChild(book);
+}
+
+function invertRead(e) {
+    book.removeChild(read);
+
+    read = document.createElement("button");
+    read.setAttribute("onclick", "invertRead()");
+    if (readStatus) {
+        read.innerText = "READ";
+        readStatus = !readStatus;
+    } else {
+        read.innerText = "NOT READ";
+        readStatus = !readStatus;
+    }
+
+    book.appendChild(read);
 }
 
 function removeBook(e) {
