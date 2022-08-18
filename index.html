@@ -7,7 +7,49 @@
         <title>Library</title>
         <link rel="stylesheet" href="styles.css" />
     </head>
-    <body></body>
+    <body>
+        <!-- TODO: Create Navigation Bar -->
+
+        <!-- TODO: Create Action Buttons-->
+
+        <!-- TODO: Create Book Submission Modal -->
+
+        <!-- TODO: Create Grid Display for Books -->
+
+        <div class="container">
+            <div class="navbar">
+                <div class="left">
+                    <button id="add" class="btn">ADD BOOK</button>
+                </div>
+                <div class="right"></div>
+            </div>
+            <div class="modal" id="modal">
+                <div class="overlay"></div>
+                <div class="popup">
+                    <div class="topbar">
+                        <div class="close" id="close">
+                            <ion-icon name="close-circle-outline"></ion-icon>
+                        </div>
+                    </div>
+                    <div class="title">ADD A BOOK</div>
+                    <div class="form">
+                        <form action="">
+                            <label for="title">TITLE</label>
+                            <input type="text" name="title" id="title" />
+
+                            <label for="author">AUTHOR</label>
+                            <input type="text" name="author" id="author" />
+
+                            <label for="pages">PAGES</label>
+                            <input type="number" name="pages" id="pages" />
+
+                            <input type="button" value="SUBMIT" class="btn" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
     <script src="main.js"></script>
     <script
         type="module"

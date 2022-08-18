@@ -1,113 +1,126 @@
 :root {
     font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
 }
 
-input {
-    width: 14.5rem;
-    height: 2.5rem;
-
-    border-radius: 8px;
-    border: 2px solid gray;
-
-    box-sizing: border-box;
-
-    padding: 1rem;
-}
-
-.menu-modal {
-    position: fixed;
-    z-index: 1;
-
-    width: 15rem;
-    height: 25rem;
+body {
+    padding: 0px;
+    margin: 0px;
 
     background-color: whitesmoke;
-
-    border-radius: 1rem;
-
-    padding: 1rem;
-    bottom: 25%;
-    left: 40%;
-
-    text-align: center;
-
-    display: flex;
-    flex-direction: column;
 }
 
-.content {
+.navbar {
+    width: 100vw;
+    height: 5rem;
+
+    padding: 1rem;
+
+    box-sizing: border-box;
+    box-shadow: 0px 5px 7px rgba(120, 119, 119, 0.181);
+
+    background-color: rgb(255, 255, 255);
+
     display: flex;
-    flex-direction: column;
 
     align-items: center;
 }
 
-.menu-form {
-    text-align: left;
-    display: flex;
-
-    flex-direction: column;
-}
-
-.input-space {
-    margin-bottom: 2rem;
-}
-
-.close {
-    font-size: 24px;
-
-    text-align: right;
-}
-
-.title {
-    font-size: 24px;
-    margin-bottom: 2.5rem;
-    font-weight: bold;
-}
-
-.add {
-    width: 7rem;
-    height: 2rem;
-
-    background-color: gray;
-
-    border-radius: 1rem;
+.navbar .btn {
+    border: none;
+    border-radius: 2rem;
+    background-color: rgb(0, 140, 255);
 
     color: white;
+    font-size: 20px;
+    font-weight: bolder;
 
-    border: none;
+    width: 9rem;
+    height: 3rem;
 }
 
-.hidden {
+.navbar .btn:hover {
+    background-color: rgb(0, 113, 206);
+
+    transition: 0.2s;
+}
+
+.navbar .btn:active {
+    background-color: rgb(1, 85, 155);
+    color: whitesmoke;
+}
+
+.modal {
     display: none;
 }
 
-.show {
-    display: block;
+.modal .overlay {
+    position: fixed;
+
+    height: 100%;
+    width: 100%;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: rgba(69, 69, 69, 0.438);
+
+    z-index: 1;
 }
 
-.books {
-    display: grid;
+.modal .popup {
+    position: absolute;
 
-    height: 90vh;
+    width: 15rem;
+    height: 25rem;
 
-    grid-template-columns: repeat(auto-fit, 10rem);
-    grid-template-rows: repeat(auto-fit, 15rem);
-
-    gap: 1rem;
-}
-
-.book {
-    background-color: cornflowerblue;
-    border-radius: 1rem;
+    z-index: 2;
 
     padding: 1rem;
 
+    background-color: rgb(255, 255, 255);
+    border-radius: 1rem;
+
+    display: flex;
+
+    flex-direction: column;
+
+    left: 37.5%;
+    top: 27%;
+}
+
+.modal .popup .topbar {
+    font-size: 28px;
+
+    text-align: right;
+
+    margin-bottom: 1rem;
+}
+
+.modal .popup .title {
+    margin-bottom: 1rem;
+
     text-align: center;
 
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 3rem;
+    font-size: 24px;
+}
 
-    color: white;
+.modal .popup .form > form > input {
+    width: 14.5rem;
+    height: 2rem;
+
+    margin-bottom: 2rem;
+
+    border-radius: 0.5rem;
+    border: 2px solid rgb(197, 197, 197);
+
+    padding: 1rem;
+
+    box-sizing: border-box;
+}
+
+.modal .popup .form > form > .btn {
+    padding: 0rem;
 }
