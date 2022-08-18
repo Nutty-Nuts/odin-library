@@ -77,6 +77,8 @@ function addBook() {
 }
 
 function renderBooks() {
+    clearBooks(books);
+
     for (i in bookStorage) {
         let book = document.createElement("div");
         book.classList.add("book");
@@ -91,11 +93,22 @@ function renderBooks() {
         bookPages.innerText = bookStorage[i].pages;
 
         let read = document.createElement("button");
+        read.setAttribute("onclick", "readStatus(event)");
         read.setAttribute("data-index", i);
-        read.innerText = "NOT READ";
+
+        if (bookStorage[i].read) {
+            read.classList.add("read");
+            read.classList.remove("not-read");
+            read.innerText = "READ";
+        } else {
+            read.classList.add("not-read");
+            read.classList.remove("read");
+            read.innerText = "NOT READ";
+        }
 
         let remove = document.createElement("button");
-        remove.setAttribute("onclick", "removeBook()");
+        remove.setAttribute("onclick", "removeBook(event)");
+        remove.setAttribute("data-index", i);
         remove.innerText = "REMOVE";
 
         book.appendChild(bookTitle);
@@ -105,5 +118,39 @@ function renderBooks() {
         book.appendChild(remove);
 
         books.appendChild(book);
+    }
+}
+
+function clearBooks(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
+function removeBook(e) {
+    const { index } = e.target.dataset;
+
+    const itemRemove = bookStorage[index];
+
+    if (index > -1) {
+        bookStorage.splice(index, 1);
+    }
+
+    renderBooks();
+}
+
+function readStatus(e) {
+    const { index } = e.target.dataset;
+
+    bookStorage[index].updateRead();
+
+    if (bookStorage[index].read) {
+        e.target.classList.add("read");
+        e.target.classList.remove("not-read");
+        e.target.innerText = "READ";
+    } else {
+        e.target.classList.add("not-read");
+        e.target.classList.remove("read");
+        e.target.innerText = "NOT READ";
     }
 }

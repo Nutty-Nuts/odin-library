@@ -149,8 +149,6 @@ body {
 }
 
 .book > button {
-    background-color: gainsboro;
-
     height: 2rem;
     width: 6rem;
 
@@ -168,4 +166,12 @@ body {
 
 .book > button:active {
     background-color: gray;
+}
+
+.read {
+    background-color: rgb(170, 255, 170);
+}
+
+.not-read {
+    background-color: rgb(255, 190, 190);
 }
