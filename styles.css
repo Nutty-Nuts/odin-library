@@ -37,6 +37,8 @@ body {
 
     width: 7rem;
     height: 2.5rem;
+
+    margin-right: 1rem;
 }
 
 .navbar .btn:hover {
@@ -146,6 +148,8 @@ body {
     text-align: center;
 
     line-height: 2.5rem;
+
+    box-shadow: 5px 5px 5px gainsboro;
 }
 
 .book > button {
@@ -159,13 +163,12 @@ body {
 }
 
 .book > button:hover {
-    background-color: rgb(183, 182, 182);
-    color: white;
+    filter: brightness(0.9);
     transition: 0.2s;
 }
 
 .book > button:active {
-    background-color: gray;
+    filter: brightness(0.8);
 }
 
 .read {

@@ -14,6 +14,7 @@ let add = document.getElementById("add");
 let modal = document.getElementById("modal");
 let close = document.getElementById("close");
 let submit = document.getElementById("submit");
+let clear = document.getElementById("clear");
 
 let books = document.getElementById("books");
 
@@ -22,11 +23,18 @@ let bookStorage = [];
 // * Event Listeners
 
 add.addEventListener("click", showElement);
-close.addEventListener("click", hideElement);
+close.addEventListener("click", () => {
+    hideElement();
+    clearInput();
+});
 submit.addEventListener("click", () => {
     addBook();
     clearInput();
     hideElement();
+});
+clear.addEventListener("click", () => {
+    clearPage();
+    renderBooks();
 });
 
 function showElement() {
@@ -72,6 +80,14 @@ function addBook() {
 
     console.log("Added Book");
     console.table(bookStorage);
+
+    renderBooks();
+}
+
+function clearPage() {
+    clearBooks(books);
+
+    bookStorage = [];
 
     renderBooks();
 }
@@ -125,6 +141,8 @@ function clearBooks(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
+
+    console.log("Cleared");
 }
 
 function removeBook(e) {
